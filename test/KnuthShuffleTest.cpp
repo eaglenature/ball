@@ -25,9 +25,9 @@ TEST(KnuthShuffle, IntegerKeys)
 
     ball::knuth_shuffle(keys.begin(), keys.end());
 
-    std::cout << "{ ";
-    std::copy(keys.begin(), keys.end(), std::ostream_iterator<Key>(std::cout, " "));
-    std::cout << " }\n";
+    //std::cout << "{ ";
+    //std::copy(keys.begin(), keys.end(), std::ostream_iterator<Key>(std::cout, " "));
+    //std::cout << " }\n";
 }
 
 
@@ -46,7 +46,7 @@ TEST(KnuthShuffle, StringKeys)
 
     ball::knuth_shuffle(keys.begin(), keys.end());
 
-    std::cout << "{ ";
-    std::copy(keys.begin(), keys.end(), std::ostream_iterator<Key>(std::cout, " "));
-    std::cout << " }\n";
+    //std::cout << "{ ";
+    //std::copy(keys.begin(), keys.end(), std::ostream_iterator<Key>(std::cout, " "));
+    //std::cout << " }\n";
 }
