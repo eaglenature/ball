@@ -15,8 +15,8 @@ namespace ball
 {
 
 
-template<class RandomAccessIterator>
-void knuth_shuffle(RandomAccessIterator first, RandomAccessIterator last)
+template<class InputIterator>
+void knuth_shuffle(InputIterator first, InputIterator last)
 {
     auto distance = std::distance(first, last);
     for (auto curr = 0; curr < distance; ++curr)
