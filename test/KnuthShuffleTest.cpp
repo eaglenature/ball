@@ -14,10 +14,11 @@
 
 TEST(KnuthShuffle, IntegerKeys)
 {
-    typedef int Key;
     std::srand(std::time(0));
 
+    typedef int Key;
     std::vector<Key> keys(15);
+
     std::generate(keys.begin(), keys.end(), [](){
         static Key item = 0;
         return item++;
@@ -33,10 +34,11 @@ TEST(KnuthShuffle, IntegerKeys)
 
 TEST(KnuthShuffle, StringKeys)
 {
-    typedef std::string Key;
     std::srand(std::time(0));
 
+    typedef std::string Key;
     std::vector<Key> keys(6);
+
     std::generate(keys.begin(), keys.end(), [](){
         static const std::vector<std::string> cities =
         {"New York", "Tokyo", "Rome", "Oslo", "London", "Paris"};

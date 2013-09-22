@@ -3,6 +3,8 @@
  *
  *  Created on: Sep 22, 2013
  *      Author: eaglenature@gmail.com
+ *
+ *  Description: Unit tests entry point.
  */
 
 #include <gtest/gtest.h>

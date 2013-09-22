@@ -14,7 +14,6 @@
 namespace ball
 {
 
-
 template<class InputIterator>
 void knuth_shuffle(InputIterator first, InputIterator last)
 {
@@ -24,7 +23,6 @@ void knuth_shuffle(InputIterator first, InputIterator last)
         std::swap(first[std::rand() % (curr + 1)], first[curr]);
     }
 }
-
 
 } // namespace ball
 

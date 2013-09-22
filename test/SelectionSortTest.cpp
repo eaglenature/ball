@@ -15,8 +15,8 @@
 TEST(SelectionSort, IntegerKeys)
 {
     typedef int Key;
-
     std::vector<Key> keys(2 << 10);
+
     std::generate(keys.begin(), keys.end(), [](){
         static Key item = 0;
         return item++;
