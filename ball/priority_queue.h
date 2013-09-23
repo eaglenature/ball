@@ -45,6 +45,10 @@ class static_priority_queue
         return N;
     }
 
+    int capacity() const {
+        return NumElements;
+    }
+
   private:
     static_priority_queue(const static_priority_queue&) = delete;
     static_priority_queue& operator=(const static_priority_queue&) = delete;
