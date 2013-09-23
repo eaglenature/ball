@@ -21,7 +21,7 @@ template<class Key,
 class static_priority_queue
 {
   public:
-    explicit static_priority_queue()
+    static_priority_queue()
         : N(0) {
     }
 
