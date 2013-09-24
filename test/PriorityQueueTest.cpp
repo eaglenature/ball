@@ -4,8 +4,9 @@
  *  Created on: Sep 23, 2013
  *      Author: eaglenature@gmail.com
  */
-
+#include <string>
 #include <gtest/gtest.h>
+
 #include "../ball/priority_queue.h"
 
 
@@ -59,8 +60,6 @@ TEST(StaticMinPriorityQueue, Insert)
     ASSERT_TRUE(pq.empty());
 }
 
-
-
 TEST(DynamicMaxPriorityQueue, Empty)
 {
     ball::dynamic_priority_queue<int, std::less<int> > pq(10);
@@ -109,5 +108,77 @@ TEST(DynamicMaxPriorityQueue, Capacity)
     ASSERT_EQ(0, pq.size());
     ASSERT_EQ(3, pq.capacity());
 
+    ASSERT_TRUE(pq.empty());
+}
+
+TEST(StringStaticPriorityQueue, MaxQueueInsert)
+{
+    ball::static_priority_queue<std::string, 10, std::less<std::string> > pq;
+    ASSERT_TRUE(pq.empty());
+
+    pq.insert("Tokyo");
+    pq.insert("Warsaw");
+    pq.insert("Aberdeen");
+    pq.insert("Bergen");
+    ASSERT_EQ(4, pq.size());
+
+    ASSERT_EQ("Warsaw", pq.top());
+    ASSERT_EQ("Tokyo", pq.top());
+    ASSERT_EQ("Bergen", pq.top());
+    ASSERT_EQ("Aberdeen", pq.top());
+    ASSERT_TRUE(pq.empty());
+}
+
+TEST(StringStaticPriorityQueue, MinQueueInsert)
+{
+    ball::static_priority_queue<std::string, 10, std::greater<std::string> > pq;
+    ASSERT_TRUE(pq.empty());
+
+    pq.insert("Tokyo");
+    pq.insert("Warsaw");
+    pq.insert("Aberdeen");
+    pq.insert("Bergen");
+    ASSERT_EQ(4, pq.size());
+
+    ASSERT_EQ("Aberdeen", pq.top());
+    ASSERT_EQ("Bergen", pq.top());
+    ASSERT_EQ("Tokyo", pq.top());
+    ASSERT_EQ("Warsaw", pq.top());
+    ASSERT_TRUE(pq.empty());
+}
+
+TEST(StringDynamicPriorityQueue, MaxQueueInsert)
+{
+    ball::dynamic_priority_queue<std::string, std::less<std::string> > pq(2);
+    ASSERT_TRUE(pq.empty());
+
+    pq.insert("Tokyo");
+    pq.insert("Warsaw");
+    pq.insert("Aberdeen");
+    pq.insert("Bergen");
+    ASSERT_EQ(4, pq.size());
+
+    ASSERT_EQ("Warsaw", pq.top());
+    ASSERT_EQ("Tokyo", pq.top());
+    ASSERT_EQ("Bergen", pq.top());
+    ASSERT_EQ("Aberdeen", pq.top());
+    ASSERT_TRUE(pq.empty());
+}
+
+TEST(StringDynamicPriorityQueue, MinQueueInsert)
+{
+    ball::dynamic_priority_queue<std::string, std::greater<std::string> > pq(2);
+    ASSERT_TRUE(pq.empty());
+
+    pq.insert("Tokyo");
+    pq.insert("Warsaw");
+    pq.insert("Aberdeen");
+    pq.insert("Bergen");
+    ASSERT_EQ(4, pq.size());
+
+    ASSERT_EQ("Aberdeen", pq.top());
+    ASSERT_EQ("Bergen", pq.top());
+    ASSERT_EQ("Tokyo", pq.top());
+    ASSERT_EQ("Warsaw", pq.top());
     ASSERT_TRUE(pq.empty());
 }
