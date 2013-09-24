@@ -22,7 +22,8 @@ class static_priority_queue
 {
   public:
     static_priority_queue()
-        : N(0) {
+        : comparator()
+        , N(0) {
     }
 
     void insert(Key key) {
@@ -31,10 +32,10 @@ class static_priority_queue
     }
 
     Key top() {
-        Key keyMax = pq[1];
+        Key topKey = pq[1];
         exch(1, N--);
         sink(1);
-        return keyMax;
+        return topKey;
     }
 
     bool empty() const {
@@ -54,7 +55,7 @@ class static_priority_queue
     static_priority_queue& operator=(const static_priority_queue&) = delete;
 
     bool compare(int p, int q) const {
-        return Comparator()(pq[p], pq[q]);
+        return comparator(pq[p], pq[q]);
     }
 
     void exch(int p, int q) {
@@ -80,6 +81,7 @@ class static_priority_queue
         }
     }
 
+    Comparator comparator;
     std::array<Key, NumElements> pq;
     int N;
 };
@@ -92,7 +94,8 @@ class dynamic_priority_queue
 {
   public:
     explicit dynamic_priority_queue(int capacity)
-        : pq(new Key[capacity + 1])
+        : comparator()
+        , pq(new Key[capacity + 1])
         , length(capacity + 1)
         , N(0) {
     }
@@ -128,7 +131,7 @@ class dynamic_priority_queue
     dynamic_priority_queue& operator=(const dynamic_priority_queue&) = delete;
 
     bool compare(int p, int q) const {
-        return Comparator()(pq[p], pq[q]);
+        return comparator(pq[p], pq[q]);
     }
 
     void exch(int p, int q) {
@@ -162,6 +165,7 @@ class dynamic_priority_queue
         length = capacity;
     }
 
+    Comparator comparator;
     std::unique_ptr<Key[]> pq;
     int length;
     int N;
