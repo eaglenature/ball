@@ -109,7 +109,7 @@ class weighted_quick_union
   public:
     explicit weighted_quick_union(int n)
         : index(new int[n])
-        , weigth(new int[n])
+        , weight(new int[n])
         , counter(n)
         , size(n) {
 
@@ -117,7 +117,7 @@ class weighted_quick_union
             index[i] = i;
 
         for (auto i = 0; i < size; ++i)
-            weigth[i] = 1;
+            weight[i] = 1;
     }
 
     int count() const {
@@ -132,12 +132,12 @@ class weighted_quick_union
         int rp = root(p);
         int rq = root(q);
         if (rp == rq) return;
-        if (weigth[rp] < weigth[rq]) {
+        if (weight[rp] < weight[rq]) {
             index[rp] = rq;
-            weigth[rq] += weigth[rp];
+            weight[rq] += weight[rp];
         } else {
             index[rq] = rp;
-            weigth[rp] += weigth[rq];
+            weight[rp] += weight[rq];
         }
         --counter;
     }
@@ -153,7 +153,7 @@ class weighted_quick_union
     }
 
     std::unique_ptr<int[]> index;
-    std::unique_ptr<int[]> weigth;
+    std::unique_ptr<int[]> weight;
     int counter;
     const int size;
 };
@@ -165,7 +165,7 @@ class weighted_quick_union_pc
   public:
     explicit weighted_quick_union_pc(int n)
         : index(new int[n])
-        , weigth(new int[n])
+        , weight(new int[n])
         , counter(n)
         , size(n) {
 
@@ -173,7 +173,7 @@ class weighted_quick_union_pc
             index[i] = i;
 
         for (auto i = 0; i < size; ++i)
-            weigth[i] = 1;
+            weight[i] = 1;
     }
 
     int count() const {
@@ -188,12 +188,12 @@ class weighted_quick_union_pc
         int rp = root(p);
         int rq = root(q);
         if (rp == rq) return;
-        if (weigth[rp] < weigth[rq]) {
+        if (weight[rp] < weight[rq]) {
             index[rp] = rq;
-            weigth[rq] += weigth[rp];
+            weight[rq] += weight[rp];
         } else {
             index[rq] = rp;
-            weigth[rp] += weigth[rq];
+            weight[rp] += weight[rq];
         }
         --counter;
     }
@@ -211,7 +211,7 @@ class weighted_quick_union_pc
     }
 
     std::unique_ptr<int[]> index;
-    std::unique_ptr<int[]> weigth;
+    std::unique_ptr<int[]> weight;
     int counter;
     const int size;
 };

@@ -26,4 +26,4 @@ void knuth_shuffle(InputIterator first, InputIterator last)
 
 } // namespace ball
 
-#endif /* SHUFFLE_H_ */
+#endif /* KNUTH_SHUFFLE_H_ */
